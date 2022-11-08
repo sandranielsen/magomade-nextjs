@@ -1,3 +1,199 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*** Global elements ***/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* slider styling */
+body *::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: HelveticaNeue;
+  font-weight: 900;
+  }
+
+h3 {
+  font-size: 2rem;
+  font-family: HelveticaNeue;
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  font-family: HelveticaNeue;
+  font-weight: 700;
+}
+
+p, a, button, table {
+  font-family: HelveticaNeue;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Font imports */
+@font-face {
+font-family: 'HelveticaNeue';
+src: url('../asset/HelveticaNeue/HelveticaNeue-Thin.woff');
+font-weight: 200;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'HelveticaNeue';
+src: url('../asset/HelveticaNeue/HelveticaNeue-Light.woff');
+font-weight: 300;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'HelveticaNeue';
+src: url('../asset/HelveticaNeue/HelveticaNeue-BoldCondensed.woff');
+font-weight: 700;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'HelveticaNeue';
+src: url('../asset/HelveticaNeue/HelveticaNeue-CondensedBlack.woff');
+font-weight: 900;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'HelveticaNeue';
+src: url('../asset/HelveticaNeue/HelveticaNeue-Bold-Italic.woff');
+font-weight: 700;
+font-style: Italic;
+}
+
+/* Navbar */
+#nav-item {
+    font-family: HelveticaNeue;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+#nav-item:hover {
+  transform: scale(1.07);
+}
+
+.navbar {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 10;
+    padding: 1rem 4rem;
+    background-color: transparent;
+    color: #fff;
+    fill: #fff;
+    transition: 0.5s;
+}
+
+.navbar-alt {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 10;
+    padding: 1rem 4rem;
+    padding: 1rem 4rem;
+    background-color: #fff;
+    color: #FF5802;
+}
+
+#navbar-alt a {
+  color: #FF5802;
+}
+
+.navbar.active {
+  background-color: #fff;
+  color: #FF5802;
+  transition: 0.5s;
+}
+
+.navbar a {
+  color: #fff;
+}
+
+.navbar.active a {
+  color: #FF5802;
+}
+
+.navbar #logo-primary {
+  display: block;
+}
+
+.navbar.active #logo-primary {
+  display: none;
+}
+
+.navbar #logo-secondary {
+  display: none;
+}
+
+.navbar.active #logo-secondary {
+  display: block;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: first baseline;
+}
+
+.dropdown img {
+  margin: auto;
+}
+
+.dropdown-button {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding-top: 3.5rem;
+  min-width: 160px;
+  z-index: 1;
+  gap: 0.5rem;
+}
+
+.dropdown-content a:hover {
+  transform: scale(1.02);
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button styling */
+#primary-button {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+}
+
+#secondary-button {
+    color: #FF5802;
+    border: 1px solid #FF5802;
+    background-color: transparent;
+}
