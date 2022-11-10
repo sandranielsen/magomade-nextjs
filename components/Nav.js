@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import {
+  ShoppingBagIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 
 export default function Nav() {
 
@@ -27,10 +31,10 @@ export default function Nav() {
               <button href="/" id="nav-item">
                 Patterns
               </button>
-              <Image src="/arrow.svg" width={10} height={10} alt="Arrow" />
+              <ChevronDownIcon className="h-5 w-5" />
             </div>
 
-            <div class="dropdown-content">
+            <div className="dropdown-content">
               <Link href="/collections/english">English</Link>
               <Link href="/collections/dansk">Dansk</Link>
             </div>
@@ -67,10 +71,10 @@ export default function Nav() {
 
         <div className="flex flex-row w-1/3 justify-end gap-8 m-auto">
           <Link href="/">
-            <Image src="/search.svg" width={16} height={16} alt="Search" />
+            <MagnifyingGlassIcon className="h-5 w-5" />
           </Link>
           <Link href="/">
-            <Image src="/cart.svg" width={16} height={16} alt="Cart" />
+            <ShoppingBagIcon className="h-5 w-5" />
           </Link>
         </div>
       </div>

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { ShoppingBagIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+
 export default function SecondaryNav() {
 
   return (
@@ -11,7 +14,7 @@ export default function SecondaryNav() {
             <button href="/" id="nav-item">
               Patterns
             </button>
-            <Image src="/arrow.svg" width={10} height={10} alt="Arrow" />
+            <ChevronDownIcon className="h-5 w-5" />
           </div>
 
           <div className="dropdown-content">
@@ -19,7 +22,7 @@ export default function SecondaryNav() {
             <Link href="/collections/dansk">Dansk</Link>
           </div>
         </div>
-        
+
         <Link id="nav-item" href="/">
           Guides
         </Link>
@@ -42,10 +45,10 @@ export default function SecondaryNav() {
 
       <div className="flex flex-row w-1/3 justify-end gap-4 m-auto">
         <Link href="/">
-          <Image src="/search.svg" width={20} height={20} alt="Search" />
+          <MagnifyingGlassIcon  className="h-5 w-5"/>
         </Link>
         <Link href="/">
-          <Image src="/cart.svg" width={20} height={20} alt="Cart" />
+          <ShoppingBagIcon className="h-5 w-5" />
         </Link>
       </div>
     </div>

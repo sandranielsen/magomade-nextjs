@@ -1,31 +1,7 @@
 import * as React from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import ProductCard from "./ProductCard";
 
-const Product = ({ product, goToProductPage }) => {
-  const { id, title, images, variants, handle } = product;
-  const { src: productImage } = images[0];
-  const { price } = variants[0];
-  return (
-    <div
-      style={{ cursor: "pointer" }}
-      onClick={() => goToProductPage(handle)}
-       className="w-80"
-    >
-      <img
-        src={productImage}
-        srcSet={productImage}
-        alt={title}
-        loading="lazy"
-      />
-      <div
-        title={title}
-        subtitle={<span>Price: {price}</span>}
-        position="below"
-      />
-    </div>
-  );
-};
 
 export default function ProductList({ products }) {
   
@@ -36,14 +12,12 @@ export default function ProductList({ products }) {
 
 
   return (
-    <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h2 className="flex text-4xl justify-center mb-8">Patterns</h2>
-
+    <div className="mb-12">
       <div>
         {products && products.length > 0 ? (
-          <div className="flex flex-row gap-3 overflow-x-auto snap-mandatory">
+          <div className="flex flex-row gap-6 overflow-x-scroll snap-mandatory snap-x">
             {products.map((product) => (
-              <Product
+              <ProductCard
                 key={product.handle}
                 product={product}
                 goToProductPage={goToProductPage}

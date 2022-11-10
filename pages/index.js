@@ -8,7 +8,10 @@ export default function Home({products}) {
   return (
     <>
       <Hero />
-      <ProductList products={products} />
+      <div>
+        <h2 className="flex text-4xl justify-center mb-8">Patterns</h2>
+        <ProductList products={products} />
+      </div>
     </>
   );
 }

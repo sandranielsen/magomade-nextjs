@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /*** Global elements ***/
+
 html {
   box-sizing: border-box;
 }
@@ -10,7 +11,7 @@ html {
   box-sizing: inherit;
 }
 
-/* slider styling */
+/* Slider styling */
 body *::-webkit-scrollbar {
     display: none;
 }
@@ -80,6 +81,12 @@ font-weight: 700;
 font-style: Italic;
 }
 
+/*** Mobile/tablet styling ****/
+
+main {
+  margin: 0 2rem;
+}
+
 /* Navbar */
 #nav-item {
     font-family: HelveticaNeue;
@@ -93,12 +100,10 @@ font-style: Italic;
 
 .navbar {
     position: fixed;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     width: 100%;
     z-index: 10;
-    padding: 1rem 4rem;
+    padding: 1rem 2rem;
+    height: 6rem;
     background-color: transparent;
     color: #fff;
     fill: #fff;
@@ -106,13 +111,13 @@ font-style: Italic;
 }
 
 .navbar-alt {
-    position: fixed;
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     z-index: 10;
-    padding: 1rem 4rem;
     padding: 1rem 4rem;
     background-color: #fff;
     color: #FF5802;
@@ -132,7 +137,7 @@ font-style: Italic;
   color: #fff;
 }
 
-.navbar.active a {
+.navbar.active #nav-item {
   color: #FF5802;
 }
 
@@ -152,6 +157,7 @@ font-style: Italic;
   display: block;
 }
 
+/* Dropdown */
 .dropdown {
   display: flex;
   justify-content: first baseline;
@@ -180,9 +186,22 @@ font-style: Italic;
   transform: scale(1.02);
 }
 
+.navbar.active #dropdown-container {
+  background-color: #fff;
+  border-top: 1px solid #FF5802;
+}
+
 .dropdown:hover .dropdown-content {
   display: flex;
   flex-direction: column;
+}
+
+/* Mobile menu */
+.menu-container {
+  padding: 1rem 2rem;
+  height: 6rem;
+  display: flex;
+  margin: auto;
 }
 
 /* Button styling */
@@ -196,4 +215,19 @@ font-style: Italic;
     color: #FF5802;
     border: 1px solid #FF5802;
     background-color: transparent;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+
+
+/*** Desktop styling ***/
+
+@media only screen and (min-width: 768px) {
+  main {
+  margin: 0 4rem;
+}
 }

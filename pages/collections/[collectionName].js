@@ -1,18 +1,33 @@
 import * as React from "react";
-import { useRouter } from "next/router";
 
 import ProductList from "../../components/ProductList";
-import PRODUCTS from "../../data.js";
+import { shopifyClient, parseShopifyResponse } from "../../lib/shopify";
 
-export default function CollectionPage() {
-  const router = useRouter();
-  const { collectionName } = router.query;
-  const products = PRODUCTS.filter(
-    (product) => product.collection === collectionName
-  );
+
+
+export default function CollectionPage({ products, collectionName }) {
   return (
-      <div>
-        <ProductList products={products} />
+    <div className="relative">
+      <h1 className="text-black">{collectionName}</h1>
+      <ProductList products={products} />
     </div>
   );
 }
+
+export const getServerSideProps = async ({ params }) => {
+  const { collectionName } = params;
+  // Fetch all the collections
+  const collectionsData = await shopifyClient.collection.fetchAllWithProducts();
+  const collections = parseShopifyResponse(collectionsData);
+  // Get the right one
+  const collection = collections.find(
+    (collection) => collection.handle === collectionName
+  );
+
+  return {
+    props: {
+      collectionName,
+      products: collection.products,
+    },
+  };
+};
