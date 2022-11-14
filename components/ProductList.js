@@ -12,7 +12,7 @@ export default function ProductList({ products }) {
 
 
   return (
-    <div className="mb-12">
+    <div id="side-padding " className="mb-12">
       <div>
         {products && products.length > 0 ? (
           <div className="flex flex-row gap-6 overflow-x-scroll snap-mandatory snap-x">

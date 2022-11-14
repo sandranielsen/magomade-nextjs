@@ -1,16 +1,21 @@
 import * as React from "react";
 
 import ProductList from "../../components/ProductList";
+import Layout from "../../components/Layout";
 import { shopifyClient, parseShopifyResponse } from "../../lib/shopify";
 
 
 
 export default function CollectionPage({ products, collectionName }) {
   return (
-    <div className="relative">
-      <h1 className="text-black">{collectionName}</h1>
-      <ProductList products={products} />
-    </div>
+    <>
+        <Layout navbarType={2}>
+      <div className="relative">
+        <h1 className="text-black">{collectionName}</h1>
+        <ProductList products={products} />
+        </div>
+        </Layout>
+    </>
   );
 }
 

@@ -17,23 +17,9 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-    
-  /* transparent header functionality */
-  const [navbar, setNavbar] = useState(false);
-  const changeBackground = () => {
-    if (window.scrollY >= 80) {
-      setNavbar(true);
-    } else {
-      setNavbar(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
-  });
 
   return (
-    <Popover className={navbar ? "navbar active" : "navbar"}>
+    <Popover className="navbar-alt">
       <div>
         <div className="grid grid-cols-3 w-full justify-between items-center">
           {/* Burger menu */}
@@ -51,7 +37,7 @@ export default function Navbar() {
                 <>
                   <Popover.Button
                     className={classNames(
-                      open ? "text-white" : "text-white",
+                      open ? "text-[#FF5802]" : "text-[#FF5802]",
                       "group inline-flex items-center rounded-md text-base font-medium"
                     )}
                   >
@@ -75,7 +61,7 @@ export default function Navbar() {
                     <Popover.Panel className="absolute z-10 -left-16">
                       <div className="overflow-hidden">
                         <div
-                          id="dropdown-container"
+                          id="dropdown-container-alt"
                           className="relative flex flex-col gap-8 pl-12 pr-56 py-6 my-8 rounded-b-lg"
                         >
                           <Link id="nav-item" href="/collections/english">
@@ -102,15 +88,6 @@ export default function Navbar() {
 
           {/* Logo */}
           <div className="flex justify-center">
-            <Link href="/">
-              <Image
-                src="/logo-white.png"
-                width={70}
-                height={70}
-                alt="MagoMade Logo"
-                id="logo-primary"
-              />
-            </Link>
             <Link href="/">
               <Image
                 src="/logo-color.png"
