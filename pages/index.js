@@ -1,7 +1,9 @@
 import Hero from "/components/Hero";
-import ProductList from "/components/ProductList";
-import { shopifyClient, parseShopifyResponse } from "../lib/shopify";
+import ProductSlider from "/components/ProductSlider";
+import { client, parseShopifyResponse } from "../lib/shopify";
 import Layout from "../components/Layout";
+import GuidePreview from "../components/GuidePreview";
+
 
 
 
@@ -10,10 +12,11 @@ export default function Home({products}) {
     <>
       <Layout navbarType={1}>
         <Hero />
-        <div>
-          <h2 className="flex text-4xl justify-center mb-8">Patterns</h2>
-          <ProductList products={products} />
+        <div id="side-padding">
+          <h2 className="flex text-4xl justify-center mt-24 mb-16">Patterns</h2>
+          <ProductSlider products={products} />
         </div>
+        <GuidePreview />
       </Layout>
     </>
   );
@@ -21,11 +24,16 @@ export default function Home({products}) {
 
 export const getServerSideProps = async () => {
   // Fetch all the products
-  const products = await shopifyClient.product.fetchAll();
+  const products = await client.product.fetchAll();
+  const infos = await client.shop.fetchInfo();
+  const policies = await client.shop.fetchPolicies();
+
 
   return {
     props: {
       products: parseShopifyResponse(products),
+      infos: parseShopifyResponse(infos),
+      policies: parseShopifyResponse(policies),
     },
   };
 };

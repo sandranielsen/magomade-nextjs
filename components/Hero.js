@@ -27,7 +27,7 @@ export default function Hero() {
               <a
                 href="/"
                 id="primary-button"
-                className="flex w-full items-center justify-center rounded-md border border-transparent px-8 py-3 text-base font-medium text-white"
+                className="flex w-full items-center justify-center rounded-full border border-transparent px-8 py-3 text-base font-medium text-white"
               >
                 Find pattern
               </a>

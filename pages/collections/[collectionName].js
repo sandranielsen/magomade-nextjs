@@ -2,19 +2,23 @@ import * as React from "react";
 
 import ProductList from "../../components/ProductList";
 import Layout from "../../components/Layout";
-import { shopifyClient, parseShopifyResponse } from "../../lib/shopify";
+import { client, parseShopifyResponse } from "../../lib/shopify";
 
 
 
 export default function CollectionPage({ products, collectionName }) {
   return (
     <>
-        <Layout navbarType={2}>
-      <div className="relative">
-        <h1 className="text-black">{collectionName}</h1>
-        <ProductList products={products} />
+      <Layout navbarType={2}>
+        <div className="page-header flex h-40 mb-16">
+          <h2 className="text-white m-auto text-3xl uppercase">
+            {collectionName}
+          </h2>
         </div>
-        </Layout>
+        <div id="side-padding">
+          <ProductList products={products} />
+        </div>
+      </Layout>
     </>
   );
 }
@@ -22,7 +26,7 @@ export default function CollectionPage({ products, collectionName }) {
 export const getServerSideProps = async ({ params }) => {
   const { collectionName } = params;
   // Fetch all the collections
-  const collectionsData = await shopifyClient.collection.fetchAllWithProducts();
+  const collectionsData = await client.collection.fetchAllWithProducts();
   const collections = parseShopifyResponse(collectionsData);
   // Get the right one
   const collection = collections.find(

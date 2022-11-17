@@ -15,7 +15,7 @@ export default function ProductList({ products }) {
     <div id="side-padding " className="mb-12">
       <div>
         {products && products.length > 0 ? (
-          <div className="flex flex-row gap-6 overflow-x-scroll snap-mandatory snap-x">
+          <div className="flex flex-row flex-wrap justify-between">
             {products.map((product) => (
               <ProductCard
                 key={product.handle}

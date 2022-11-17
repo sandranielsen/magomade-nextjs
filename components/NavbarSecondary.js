@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Fragment } from "react";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { ShopContext } from "../context/shopContext";
 
 import { Popover, Transition } from "@headlessui/react";
 import {
@@ -17,6 +18,9 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+
+  /* connecting cart to Shopify checkout */
+  const { openCart } = useContext(ShopContext);
 
   return (
     <Popover className="navbar-alt">
@@ -81,7 +85,7 @@ export default function Navbar() {
             <Link href="#" id="nav-item" className="text-base font-medium">
               Guides
             </Link>
-            <Link href="#" id="nav-item" className="text-base font-medium">
+            <Link href="/about" id="nav-item" className="text-base font-medium">
               About
             </Link>
           </Popover.Group>
@@ -101,12 +105,12 @@ export default function Navbar() {
 
           {/* Icon items */}
           <div className="md-hidden items-center justify-end flex gap-2">
-            <Link href="/">
+            <button href="/">
               <MagnifyingGlassIcon id="nav-item" className="h-5 w-5" />
-            </Link>
-            <Link href="/">
+            </button>
+             <button onClick={() => openCart()}>
               <ShoppingBagIcon id="nav-item" className="h-5 w-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </div>
