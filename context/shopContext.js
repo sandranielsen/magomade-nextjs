@@ -42,6 +42,7 @@ class ShopProvider extends Component {
     this.setState({ checkout: checkout });
     console.log("added", checkout);
   }; 
+
   closeCart = () => {
     this.setState({ isCartOpen: false });
   };
