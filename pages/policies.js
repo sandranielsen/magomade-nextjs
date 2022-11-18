@@ -44,7 +44,6 @@ export default function Policies() {
           </p>
         </div>
       </Layout>
-      ;
     </div>
   );
 }

@@ -10,7 +10,8 @@ class ShopProvider extends Component {
     checkout: {},
     isCartOpen: false,
   };
-  /*componentDidMount() {
+  
+  componentDidMount() {
     if (localStorage.checkout_id) {
       this.fetchCheckout(localStorage.checkout_id);
     } else {
@@ -40,7 +41,7 @@ class ShopProvider extends Component {
     );
     this.setState({ checkout: checkout });
     console.log("added", checkout);
-  }; */
+  }; 
   closeCart = () => {
     this.setState({ isCartOpen: false });
   };

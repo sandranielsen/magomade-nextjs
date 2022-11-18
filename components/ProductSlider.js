@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import ProductCard from "./ProductCard";
 
 
-export default function ProductList({ products }) {
+export default function ProductSlider({ products }) {
   
   const router = useRouter();
  
